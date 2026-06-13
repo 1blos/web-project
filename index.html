@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강의 시간표</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="dashboard">
+
+        <!-- 왼쪽 영역 -->
+
+        <div class="left-panel">
+
+            <h1 class="main-title">📚 강의 시간표</h1>
+
+            <section class="card today-card">
+
+                <h3>🕒 현재 시간</h3>
+
+                <p id="clock"></p>
+
+            </section>
+
+            <section class="card today-card">
+
+                <h3>📌 오늘의 수업</h3>
+
+                <div id="todayLesson">
+
+                    오늘 수업이 없습니다.
+                </div>
+            
+            </section>
+
+        </div>
+
+        <!-- 오른쪽 영역 -->
+
+        <div class="right-panel">
+
+            <section class="card input-box">
+    
+
+                <input
+                    list="subjectList"
+                    id="subject"
+                    placeholder="예: 컴퓨터네트워크 또는 컴">
+
+                <datalist id="subjectList">
+
+                    <option value="컴퓨터네트워크">
+                    <option value="인공지능프로그래밍기초">
+                    <option value="AI기초실습">
+                    <option value="실용영어">
+                    <option value="채플1">
+                    <option value="문제해결능력">
+                    <option value="웹기초">
+                    <option value="인공지능데이터베이스">
+
+                </datalist>
+
+                <select id="day">
+                    <option value="mon">월</option>
+                    <option value="tue">화</option>
+                    <option value="wed">수</option>
+                    <option value="thu">목</option>
+                    <option value="fri">금</option>
+                    <option value="sat">토</option>
+                    <option value="sun">일</option>
+                </select>
+
+                <select id="period">
+                    <option value="1">1교시</option>
+                    <option value="2">2교시</option>
+                    <option value="3">3교시</option>
+                    <option value="4">4교시</option>
+                    <option value="5">5교시</option>
+                    <option value="6">6교시</option>
+                    <option value="7">7교시</option>
+                </select>
+
+                <button onclick="addSubject()">
+                    추가
+                </button>
+
+                <button onclick="deleteSubject()">
+                    삭제
+                </button>
+
+                <button onclick="clearTable()">
+                    전체 초기화
+                </button>
+
+            </section>
+
+            <section class="card timetable-box">
+
+                <h2>📅 나의 시간표</h2>
+
+                <table>
+
+                    <tr>
+                        <th>교시</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                        <th>일</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td id="mon1"></td>
+                        <td id="tue1"></td>
+                        <td id="wed1"></td>
+                        <td id="thu1"></td>
+                        <td id="fri1"></td>
+                        <td id="sat1"></td>
+                        <td id="sun1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td id="mon2"></td>
+                        <td id="tue2"></td>
+                        <td id="wed2"></td>
+                        <td id="thu2"></td>
+                        <td id="fri2"></td>
+                        <td id="sat2"></td>
+                        <td id="sun2"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td id="mon3"></td>
+                        <td id="tue3"></td>
+                        <td id="wed3"></td>
+                        <td id="thu3"></td>
+                        <td id="fri3"></td>
+                        <td id="sat3"></td>
+                        <td id="sun3"></td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td id="mon4"></td>
+                        <td id="tue4"></td>
+                        <td id="wed4"></td>
+                        <td id="thu4"></td>
+                        <td id="fri4"></td>
+                        <td id="sat4"></td>
+                        <td id="sun4"></td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td id="mon5"></td>
+                        <td id="tue5"></td>
+                        <td id="wed5"></td>
+                        <td id="thu5"></td>
+                        <td id="fri5"></td>
+                        <td id="sat5"></td>
+                        <td id="sun5"></td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td id="mon6"></td>
+                        <td id="tue6"></td>
+                        <td id="wed6"></td>
+                        <td id="thu6"></td>
+                        <td id="fri6"></td>
+                        <td id="sat6"></td>
+                        <td id="sun6"></td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td id="mon7"></td>
+                        <td id="tue7"></td>
+                        <td id="wed7"></td>
+                        <td id="thu7"></td>
+                        <td id="fri7"></td>
+                        <td id="sat7"></td>
+                        <td id="sun7"></td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
