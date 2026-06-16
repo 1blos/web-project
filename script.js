@@ -1,3 +1,14 @@
+const subjectColors = {
+    "컴퓨터네트워크": "#f97316",
+    "인공지능프로그래밍기초": "#facc15",
+    "AI기초실습": "#84cc16",
+    "실용영어": "#2dd4bf",
+    "채플1": "#38bdf8",
+    "문제해결능력": "#ec4899",
+    "웹기초": "#c084fc",
+    "인공지능데이터베이스": "#22c55e"
+};
+
 function saveData() {
     localStorage.setItem(
         "timetable",
@@ -10,18 +21,19 @@ function addSubject() {
     let subject = document.getElementById("subject").value;
 
     const subjects = {
-    "컴":"컴퓨터네트워크",
-    "인프":"인공지능프로그래밍기초",
-    "AI":"AI기초실습",
-    "영어":"실용영어",
-    "채플":"채플1",
-    "문제":"문제해결능력",
-    "웹":"웹기초",
-    "데베":"인공지능데이터베이스"
+        "컴":"컴퓨터네트워크",
+        "인프":"인공지능프로그래밍기초",
+        "AI":"AI기초실습",
+        "영어":"실용영어",
+        "채플":"채플1",
+        "문제":"문제해결능력",
+        "웹":"웹기초",
+        "데베":"인공지능데이터베이스"
     };
 
     if(subjects[subject]){
-        subject = subjects[subject];}
+        subject = subjects[subject];
+    }
 
     let day = document.getElementById("day").value;
     let period = document.getElementById("period").value;
@@ -39,18 +51,8 @@ function addSubject() {
         return;
     }
 
+    cell.innerHTML = subject;
     cell.style.backgroundColor = subjectColors[subject] || "#64748b";
-
-    const subjectColors = {
-    "컴퓨터네트워크": "#f97316",
-    "인공지능프로그래밍기초": "#facc15",
-    "AI기초실습": "#84cc16",
-    "실용영어": "#2dd4bf",
-    "채플1": "#38bdf8",
-    "문제해결능력": "#ec4899",
-    "웹기초": "#c084fc",
-    "인공지능데이터베이스": "#22c55e"
-    };
 
     saveData();
     updateTodayLesson();
@@ -87,6 +89,8 @@ function clearTable() {
         localStorage.removeItem("timetable");
 
         alert("초기화 완료");
+
+        updateTodayLesson();
     }
 }
 
@@ -138,17 +142,17 @@ function updateTodayLesson(){
         let cell =
         document.getElementById(todayDay+i);
 
-        if(cell && cell.innerHTML!=""){
+        if(cell && cell.innerHTML != ""){
 
             html +=
-            "<p>"+i+"교시 - "+
-            cell.innerHTML+
+            "<p>" + i + "교시 - " +
+            cell.innerHTML +
             "</p>";
         }
     }
 
-    if(html==""){
-        html="오늘 수업이 없습니다.";
+    if(html == ""){
+        html = "오늘 수업이 없습니다.";
     }
 
     document.getElementById("todayLesson")
